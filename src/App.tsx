@@ -293,10 +293,10 @@ function HomePage() {
           <div className="section grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <p className="eyebrow">cPRP / PRP оборудование</p>
-              <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight text-navy-900 sm:text-5xl lg:text-6xl">
+              <h1 className="mt-4 max-w-3xl text-[2.35rem] font-bold leading-tight text-navy-900 sm:text-5xl lg:text-6xl">
                 PRP-система Arthrex Angel System
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-steel">
+              <p className="mt-5 max-w-2xl text-base leading-7 text-steel sm:mt-6 sm:text-lg sm:leading-8">
                 Автоматизированная система подготовки концентрированной обогащенной тромбоцитами плазмы (cPRP).
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -317,14 +317,14 @@ function HomePage() {
               <img
                 src={ARTHREX_IMAGE}
                 alt="Официальное изображение Arthrex Angel System"
-                className="mt-10 h-auto w-full max-w-xl rounded-lg border border-line bg-white object-contain p-4 shadow-soft"
+                className="mt-10 hidden h-auto w-full max-w-xl rounded-lg border border-line bg-white object-contain p-4 shadow-soft sm:block"
                 loading="eager"
                 width="900"
                 height="620"
               />
-              <p className="mt-3 text-xs text-steel">Источник изображения: официальный сайт Arthrex.</p>
+              <p className="mt-3 hidden text-xs text-steel sm:block">Источник изображения: официальный сайт Arthrex.</p>
             </div>
-            <div aria-label="Форма запроса коммерческого предложения">
+            <div className="hidden lg:block" aria-label="Форма запроса коммерческого предложения">
               <LeadForm source="Hero" />
             </div>
           </div>
@@ -465,7 +465,7 @@ function HomePage() {
       </main>
       <a
         href="#contact"
-        className="focus-ring fixed bottom-4 right-4 z-30 inline-flex items-center gap-2 rounded-full bg-navy-700 px-5 py-3 text-sm font-semibold text-white shadow-soft hover:bg-navy-900"
+        className="focus-ring fixed bottom-4 right-4 z-30 hidden items-center gap-2 rounded-full bg-navy-700 px-5 py-3 text-sm font-semibold text-white shadow-soft hover:bg-navy-900 sm:inline-flex"
       >
         <ClipboardCheck size={18} /> КП
       </a>
