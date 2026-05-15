@@ -25,9 +25,11 @@
 - Title и description.
 - Canonical.
 - OpenGraph.
+- OpenGraph image и Twitter Card.
 - FAQPage schema.
 - MedicalDevice schema.
 - Sitemap и robots.
+- Image sitemap для фото Arthrex Angel System.
 - H1-H3 структура.
 
 ## После запуска

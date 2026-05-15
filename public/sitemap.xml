@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://prp-system.ru/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://prp-system.ru/images/arthrex-angel-system-hero.webp</image:loc>
+      <image:title>Arthrex Angel System</image:title>
+      <image:caption>Официальное изображение Arthrex Angel System для подготовки cPRP</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://prp-system.ru/privacy</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://prp-system.ru/personal-data-consent</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

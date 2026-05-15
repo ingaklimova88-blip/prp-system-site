@@ -14,8 +14,7 @@ import { FormEvent, useEffect, useMemo, useState } from 'react';
 const CONTACT_EMAIL = 't0083640@yandex.ru';
 const CONTACT_PHONE = '+7 981 008-36-40';
 const DOMAIN = 'https://prp-system.ru';
-const ARTHREX_IMAGE =
-  'https://cdn.arthrex.io/image/upload/c_pad,w_900/f_auto/v1/Arthrex.com/Taxonomy%20Pages/Orthobiologics/Product/arthrex_angel_system';
+const ARTHREX_IMAGE = '/images/arthrex-angel-system-hero.webp';
 
 const nav = [
   ['О системе', '#system'],
@@ -310,6 +309,7 @@ function HomePage() {
       name: 'Arthrex',
       url: 'https://www.arthrex.com/orthobiologics/arthrex-angel-system',
     },
+    image: ARTHREX_IMAGE,
     url: DOMAIN,
   };
 
@@ -337,6 +337,15 @@ function HomePage() {
               <p className="mt-5 max-w-2xl text-base leading-7 text-steel sm:mt-6 sm:text-lg sm:leading-8">
                 Автоматизированная система подготовки концентрированной обогащенной тромбоцитами плазмы (cPRP).
               </p>
+              <img
+                src={ARTHREX_IMAGE}
+                alt="Фото PRP-системы Arthrex Angel System"
+                className="mt-6 h-44 w-full rounded-lg border border-line bg-white object-cover shadow-soft sm:hidden"
+                loading="eager"
+                fetchPriority="high"
+                width="1200"
+                height="1021"
+              />
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a className="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-navy-700 px-6 py-3 font-semibold text-white hover:bg-navy-900" href="#contact">
                   Получить КП <ArrowRight size={18} />
@@ -404,6 +413,34 @@ function HomePage() {
                   <p className="mt-3 text-sm leading-6 text-steel">{item.text}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-navy-50">
+          <div className="section grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <figure>
+              <img
+                src={ARTHREX_IMAGE}
+                alt="Фото PRP-системы Arthrex Angel System"
+                className="h-auto w-full rounded-lg border border-line bg-white object-contain p-4 shadow-soft"
+                loading="eager"
+                width="1200"
+                height="1021"
+              />
+              <figcaption className="mt-3 text-xs leading-5 text-steel">Источник изображения: официальный сайт Arthrex.</figcaption>
+            </figure>
+            <div>
+              <p className="eyebrow">Фото системы</p>
+              <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Как выглядит Arthrex Angel System</h2>
+              <p className="mt-5 text-lg leading-8 text-steel">
+                Визуальная идентификация оборудования помогает закупочным отделам и профильным специалистам быстрее сопоставить
+                запрос с нужной PRP-системой и расходным набором Angel для cPRP.
+              </p>
+              <div className="mt-6 grid gap-3 text-sm leading-6 text-steel">
+                <p>На сайте используется официальное изображение системы Angel.</p>
+                <p>Коммерческие фотографии с ценами, сроками и условиями поставки не публикуются в открытом доступе.</p>
+              </div>
             </div>
           </div>
         </section>

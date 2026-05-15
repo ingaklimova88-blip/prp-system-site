@@ -26,7 +26,9 @@
 - MedicalDevice schema для Arthrex Angel System.
 - Canonical на основной домен.
 - OpenGraph.
+- OpenGraph image и Twitter Card.
 - `robots.txt` и `sitemap.xml`.
+- Image sitemap для фото Arthrex Angel System.
 - Clean URLs для юридических страниц.
 
 ## После запуска

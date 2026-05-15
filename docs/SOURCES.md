@@ -5,6 +5,7 @@
 - Arthrex Angel System: https://www.arthrex.com/orthobiologics/arthrex-angel-system
 - Operator Manual: https://www.arthrex.com/resources/DFU-0262-3/angel-concentrated-platelet-rich-plasma-cprp-system-operators-manual
 - Preparation technique: https://www.arthrex.com/resources/manuals-troubleshooting/6emVVyUIN0KbOgFLt-NXZw/preparation-technique-arthrex-angel-system
+- Official product image used on site: https://cdn.arthrex.io/image/upload/c_pad,w_1200/f_auto/v1/Arthrex.com/Taxonomy%20Pages/Orthobiologics/Product/arthrex_angel_system
 
 ## Local files from owner
 
