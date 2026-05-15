@@ -143,7 +143,7 @@ function setCanonical(path: string) {
   link.href = `${DOMAIN}${path}`;
 }
 
-function LeadForm({ compact = false, source }: { compact?: boolean; source: string }) {
+function LeadForm({ compact = false }: { compact?: boolean }) {
   const [sent, setSent] = useState(false);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -184,7 +184,7 @@ function LeadForm({ compact = false, source }: { compact?: boolean; source: stri
       className="space-y-4 rounded-lg border border-line bg-white p-5 shadow-soft"
     >
       <input type="hidden" name="form-name" value="lead" />
-      <input type="hidden" name="source" value={source} />
+      <input type="hidden" name="source" value="Bottom CTA" />
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
       <div className={compact ? 'grid gap-4 sm:grid-cols-2' : 'space-y-4'}>
         <label className="block">
@@ -328,7 +328,7 @@ function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalDeviceSchema) }} />
       <main>
         <section className="bg-gradient-to-b from-navy-50 to-white">
-          <div className="section grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="section">
             <div>
               <p className="eyebrow">cPRP / PRP оборудование</p>
               <h1 className="mt-4 max-w-3xl text-[2.35rem] font-bold leading-tight text-navy-900 sm:text-5xl lg:text-6xl">
@@ -361,9 +361,6 @@ function HomePage() {
                 height="620"
               />
               <p className="mt-3 hidden text-xs text-steel sm:block">Источник изображения: официальный сайт Arthrex.</p>
-            </div>
-            <div className="hidden lg:block" aria-label="Форма запроса коммерческого предложения">
-              <LeadForm source="Hero" />
             </div>
           </div>
         </section>
@@ -518,7 +515,7 @@ function HomePage() {
                 </a>
               </div>
             </div>
-            <LeadForm compact source="Final CTA" />
+            <LeadForm compact />
           </div>
         </section>
       </main>
