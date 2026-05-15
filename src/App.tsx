@@ -42,6 +42,25 @@ const steps = [
   ['Получение компонентов', 'Доступны фракции PRP, PPP, RBC и BMC в предусмотренных контурах сбора.'],
 ];
 
+const components = [
+  {
+    term: 'cPRP',
+    text: 'Концентрированная обогащенная тромбоцитами плазма, подготавливаемая из аутологичного материала в закрытом контуре Angel.',
+  },
+  {
+    term: 'PPP',
+    text: 'Плазма с низким содержанием тромбоцитов, которая отделяется как отдельная фракция в процессе сепарации.',
+  },
+  {
+    term: 'PRP',
+    text: 'Обогащенная тромбоцитами плазма, получаемая после разделения компонентов крови в автоматизированном цикле.',
+  },
+  {
+    term: 'BMC',
+    text: 'Концентрат, связанный с обработкой смеси крови и костного мозга в режиме, предусмотренном системой Angel.',
+  },
+];
+
 const faq = [
   {
     q: 'Что такое PRP-система?',
@@ -341,11 +360,11 @@ function HomePage() {
             </p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {['cPRP', 'PPP', 'PRP', 'BMC'].map((term) => (
-              <article key={term} className="rounded-lg border border-line p-6">
-                <h3 className="text-xl font-semibold text-navy-900">{term}</h3>
+            {components.map((item) => (
+              <article key={item.term} className="rounded-lg border border-line p-6">
+                <h3 className="text-xl font-semibold text-navy-900">{item.term}</h3>
                 <p className="mt-3 text-sm leading-6 text-steel">
-                  Компонент, получаемый в процессе обработки и сепарации материала в предусмотренном контуре системы.
+                  {item.text}
                 </p>
               </article>
             ))}
