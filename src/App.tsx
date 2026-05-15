@@ -35,6 +35,25 @@ const benefits = [
   'До 540 мл материала за 3 цикла',
 ];
 
+const buyers = [
+  {
+    title: 'Клиникам и медицинским центрам',
+    text: 'Для оснащения кабинетов и операционных, где требуется подготовка аутологичных PRP-компонентов в закрытом контуре.',
+  },
+  {
+    title: 'Ортопедам и травматологам',
+    text: 'Для рабочих процессов, связанных с обработкой крови или смеси крови и костного мозга перед применением по назначению специалиста.',
+  },
+  {
+    title: 'Закупочным отделам',
+    text: 'Для запроса КП, уточнения комплектации, совместимости расходных материалов и документальной информации по системе.',
+  },
+  {
+    title: 'Частным практикам и профильным отделениям',
+    text: 'Для подбора PRP-оборудования и одноразового набора Angel под существующие внутренние медицинские процессы.',
+  },
+];
+
 const steps = [
   ['Забор материала', 'Подготавливается аутологичная кровь или смесь крови и костного мозга.'],
   ['Загрузка в набор', 'Материал поступает в одноразовый стерильный контур обработки Angel.'],
@@ -368,6 +387,27 @@ function HomePage() {
                 </p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="section">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Кому подходит</p>
+              <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Для кого нужна PRP-система Angel</h2>
+              <p className="mt-5 text-lg leading-8 text-steel">
+                Arthrex Angel System рассматривают медицинские организации, которым важно организовать воспроизводимую подготовку
+                PRP, cPRP, PPP, RBC и BMC из аутологичного материала с использованием одноразового стерильного набора.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              {buyers.map((item) => (
+                <article key={item.title} className="rounded-lg border border-line p-6">
+                  <h3 className="text-lg font-semibold text-navy-900">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-steel">{item.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
