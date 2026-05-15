@@ -20,6 +20,17 @@
     <meta property="og:site_name" content="PRP System" />
   </head>
   <body>
+    <form name="lead" method="POST" data-netlify="true" netlify-honeypot="website" hidden>
+      <input type="hidden" name="form-name" value="lead" />
+      <input type="hidden" name="source" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="organization" />
+      <textarea name="comment"></textarea>
+      <input type="checkbox" name="personal_data_consent" />
+      <input type="text" name="website" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

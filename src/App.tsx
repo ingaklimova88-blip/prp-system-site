@@ -109,29 +109,44 @@ function LeadForm({ compact = false, source }: { compact?: boolean; source: stri
   const [sent, setSent] = useState(false);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const form = event.currentTarget;
-    const hp = new FormData(form).get('website');
+    const formData = new FormData(form);
+    const hp = formData.get('website');
     if (hp) {
-      event.preventDefault();
       return;
     }
     if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+    })
+      .then(() => {
+        setSent(true);
+        form.reset();
+      })
+      .catch(() => {
+        form.submit();
+      });
     setSent(true);
   };
 
   return (
     <form
-      action={`https://formsubmit.co/${CONTACT_EMAIL}`}
+      name="lead"
+      action="/?form=sent"
       method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="website"
       onSubmit={onSubmit}
       className="space-y-4 rounded-lg border border-line bg-white p-5 shadow-soft"
     >
-      <input type="hidden" name="_subject" value={`Заявка с prp-system.ru: ${source}`} />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value={`${DOMAIN}/?form=sent`} />
+      <input type="hidden" name="form-name" value="lead" />
+      <input type="hidden" name="source" value={source} />
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
       <div className={compact ? 'grid gap-4 sm:grid-cols-2' : 'space-y-4'}>
         <label className="block">
@@ -181,7 +196,7 @@ function LeadForm({ compact = false, source }: { compact?: boolean; source: stri
       >
         Отправить заявку <ArrowRight size={18} aria-hidden="true" />
       </button>
-      {sent ? <p className="text-sm text-navy-700">Заявка отправляется. После первой заявки FormSubmit может запросить подтверждение email.</p> : null}
+      {sent ? <p className="text-sm text-navy-700">Заявка отправлена. Мы получили данные и свяжемся с вами.</p> : null}
     </form>
   );
 }
