@@ -16,12 +16,17 @@
 
 ## Netlify
 
-Типовая схема:
+Netlify site:
 
-- `A` record для `@` на IP Netlify, показанные в панели сайта.
-- `CNAME` для `www` на домен Netlify-сайта.
+- `https://prp-system-site.netlify.app`
+- Site ID: `e30dbb44-389e-4e25-82ed-3276e1d83ff2`
 
-Точные значения нужно брать из панели Netlify.
+DNS-схема:
+
+- `A` record для `@` на `75.2.60.5`.
+- `CNAME` record для `www` на `prp-system-site.netlify.app`.
+
+Эти значения соответствуют официальной схеме Netlify external DNS для standard network.
 
 ## SEO redirect
 

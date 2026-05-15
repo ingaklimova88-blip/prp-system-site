@@ -59,14 +59,22 @@ npm run preview
 
 ## Деплой
 
-Рекомендуемый быстрый вариант: Vercel или Netlify.
+Используется Netlify.
+
+Текущий production URL:
+
+- `https://prp-system-site.netlify.app`
+
+Подключено в Netlify:
+
+- `prp-system.ru`
+- `www.prp-system.ru`
 
 После публикации нужно:
 
-1. Подключить домен `prp-system.ru`.
-2. Настроить `www.prp-system.ru` как alias/redirect.
-3. Дождаться выпуска SSL-сертификата.
-4. Проверить формы и подтвердить FormSubmit.
-5. Отправить `https://prp-system.ru/sitemap.xml` в Яндекс.Вебмастер и Google Search Console.
+1. Настроить DNS у регистратора.
+2. Дождаться выпуска SSL-сертификата.
+3. Проверить формы и подтвердить FormSubmit.
+4. Отправить `https://prp-system.ru/sitemap.xml` в Яндекс.Вебмастер и Google Search Console.
 
 Подробности: [Deployment Guide](./docs/DEPLOYMENT.md).
