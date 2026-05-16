@@ -15,6 +15,9 @@ const CONTACT_EMAIL = 't0083640@yandex.ru';
 const CONTACT_PHONE = '+7 981 008-36-40';
 const DOMAIN = 'https://prp-system.ru';
 const ARTHREX_IMAGE = '/images/arthrex-angel-system-hero.webp';
+const ANGEL_PRESENTATION_IMAGE = '/images/angel-system-presentation.webp';
+const ANGEL_KIT_IMAGE = '/images/angel-cprp-kit.webp';
+const ANGEL_SENSOR_IMAGE = '/images/angel-3st-sensor.webp';
 const FORM_ENDPOINT = 'https://prp-system-site.netlify.app/';
 
 const nav = [
@@ -38,19 +41,19 @@ const benefits = [
 const buyers = [
   {
     title: 'Клиникам и медицинским центрам',
-    text: 'Для оснащения кабинетов и операционных, где требуется подготовка аутологичных PRP-компонентов в закрытом контуре.',
+    text: 'Для оснащения кабинетов, операционных и профильных отделений, где важны воспроизводимый цикл, стерильный контур и понятная документация по PRP-оборудованию.',
   },
   {
     title: 'Ортопедам и травматологам',
-    text: 'Для рабочих процессов, связанных с обработкой крови или смеси крови и костного мозга перед применением по назначению специалиста.',
+    text: 'Для специалистов, которым нужна управляемая подготовка PRP, cPRP, PPP, RBC или BMC из аутологичного материала в рамках внутренних медицинских протоколов.',
   },
   {
     title: 'Закупочным отделам',
-    text: 'Для запроса КП, уточнения комплектации, совместимости расходных материалов и документальной информации по системе.',
+    text: 'Для подбора системы подготовки PRP, запроса КП, проверки совместимых расходных материалов Arthrex Angel и сбора документов перед закупкой.',
   },
   {
     title: 'Частным практикам и профильным отделениям',
-    text: 'Для подбора PRP-оборудования и одноразового набора Angel под существующие внутренние медицинские процессы.',
+    text: 'Для сравнения аппарата PRP с обычной PRP-центрифугой и выбора одноразового набора Angel под существующие рабочие процессы.',
   },
 ];
 
@@ -80,6 +83,35 @@ const components = [
   },
 ];
 
+const purchaseChecklist = [
+  'модель и комплектацию системы Angel',
+  'совместимость набора cPRP с текущими задачами',
+  'объем обработки 40-180 мл за цикл',
+  'документацию, инструкцию и требования к расходным материалам',
+  'потребность в расходных материалах Arthrex Angel',
+];
+
+const visualGallery = [
+  {
+    image: ANGEL_PRESENTATION_IMAGE,
+    title: 'Система Angel',
+    alt: 'Arthrex Angel System для подготовки cPRP',
+    text: 'Визуальная идентификация помогает врачу и закупке сопоставить запрос с нужной PRP-системой.',
+  },
+  {
+    image: ANGEL_KIT_IMAGE,
+    title: 'Набор cPRP',
+    alt: 'Одноразовый стерильный набор Angel cPRP',
+    text: 'Расходный контур включает разделительную камеру, резервуар-мешок, клапан, шприц и трубки.',
+  },
+  {
+    image: ANGEL_SENSOR_IMAGE,
+    title: 'Сенсорный контроль',
+    alt: 'Сенсорная зона технологии 3ST системы Angel',
+    text: 'Технология 3ST используется для контроля границ компонентов во время автоматического цикла.',
+  },
+];
+
 const faq = [
   {
     q: 'Что такое PRP-система?',
@@ -96,6 +128,10 @@ const faq = [
   {
     q: 'Это обычная лабораторная центрифуга?',
     a: 'Нет. Angel System содержит этап центрифугирования, поэтому ее могут искать как PRP-центрифугу, но производитель описывает устройство как автоматизированную систему подготовки cPRP с технологией 3ST и закрытым одноразовым контуром.',
+  },
+  {
+    q: 'Почему Angel System ищут как PRP-центрифугу?',
+    a: 'В профессиональном поиске запрос "PRP-центрифуга" часто используют шире, чем обычное лабораторное устройство. Для Angel System корректнее говорить о системе подготовки PRP/cPRP: центрифугирование сочетается с одноразовым контуром, 3ST-сенсорами и управляемым сбором фракций.',
   },
   {
     q: 'Какие расходные материалы используются?',
@@ -120,6 +156,10 @@ const faq = [
   {
     q: 'Как уточнить совместимость?',
     a: 'Отправьте модель системы, тип задачи и доступные данные по используемым расходным материалам через форму заявки.',
+  },
+  {
+    q: 'Что указать в заявке перед покупкой PRP-оборудования?',
+    a: 'Укажите организацию, направление работы, интерес к системе Angel или только к набору cPRP, а также желаемый объем обработки и вопросы по совместимости.',
   },
 ];
 
@@ -311,15 +351,15 @@ function HomePage() {
       name: 'Arthrex',
       url: 'https://www.arthrex.com/orthobiologics/arthrex-angel-system',
     },
-    image: ARTHREX_IMAGE,
+    image: ANGEL_PRESENTATION_IMAGE,
     url: DOMAIN,
   };
 
   useEffect(() => {
-    document.title = 'PRP-система Arthrex Angel System | PRP-центрифуга, cPRP оборудование';
+    document.title = 'PRP-система Arthrex Angel System | PRP-центрифуга и cPRP оборудование для врачей';
     setMeta(
       'description',
-      'Arthrex Angel System - PRP-система, которую часто ищут как PRP-центрифугу: подготовка cPRP, 3ST, закрытый стерильный контур, обработка 40-180 мл за цикл.',
+      'Arthrex Angel System - PRP-система и cPRP оборудование для клиник. Часто ищут как PRP-центрифугу: 3ST, закрытый стерильный контур, обработка 40-180 мл за цикл.',
     );
     setCanonical('/');
   }, []);
@@ -337,10 +377,10 @@ function HomePage() {
                 PRP-система Arthrex Angel System
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-steel sm:mt-6 sm:text-lg sm:leading-8">
-                Автоматизированная система подготовки концентрированной обогащенной тромбоцитами плазмы (cPRP). Такое оборудование часто ищут как PRP-центрифугу, аппарат PRP или систему подготовки PRP.
+                Автоматизированная система подготовки концентрированной обогащенной тромбоцитами плазмы (cPRP) для медицинских организаций, ортопедии, травматологии, спортивной медицины и хирургических отделений. Такое оборудование часто ищут как PRP-центрифугу, аппарат PRP или систему подготовки PRP.
               </p>
               <img
-                src={ARTHREX_IMAGE}
+                src={ANGEL_PRESENTATION_IMAGE}
                 alt="Фото PRP-системы Arthrex Angel System"
                 className="mt-6 h-44 w-full rounded-lg border border-line bg-white object-cover shadow-soft sm:hidden"
                 loading="eager"
@@ -352,7 +392,7 @@ function HomePage() {
                 <a className="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-navy-700 px-6 py-3 font-semibold text-white hover:bg-navy-900" href="#contact">
                   Получить КП <ArrowRight size={18} />
                 </a>
-                <a className="focus-ring inline-flex items-center justify-center gap-2 rounded-md border border-navy-700 px-6 py-3 font-semibold text-navy-900 hover:bg-white" href="#consumables">
+                <a className="focus-ring inline-flex items-center justify-center gap-2 rounded-md border border-navy-700 px-6 py-3 font-semibold text-navy-900 hover:bg-white" href="#contact">
                   Запросить информацию
                 </a>
               </div>
@@ -364,12 +404,12 @@ function HomePage() {
                 ))}
               </div>
               <img
-                src={ARTHREX_IMAGE}
-                alt="Официальное изображение Arthrex Angel System"
-                className="mt-10 hidden h-auto w-full max-w-xl rounded-lg border border-line bg-white object-contain p-4 shadow-soft sm:block"
+                src={ANGEL_PRESENTATION_IMAGE}
+                alt="Arthrex Angel System для подготовки cPRP"
+                className="mt-10 hidden h-auto w-full max-w-2xl rounded-lg border border-line bg-white object-contain p-4 shadow-soft sm:block"
                 loading="eager"
-                width="900"
-                height="620"
+                width="702"
+                height="417"
               />
             </div>
           </div>
@@ -411,8 +451,7 @@ function HomePage() {
               <p className="eyebrow">Кому подходит</p>
               <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Для кого нужна PRP-система Angel</h2>
               <p className="mt-5 text-lg leading-8 text-steel">
-                Arthrex Angel System рассматривают медицинские организации, которым важно организовать воспроизводимую подготовку
-                PRP, cPRP, PPP, RBC и BMC из аутологичного материала с использованием одноразового стерильного набора.
+                Arthrex Angel System рассматривают клиники и врачи, которым нужна воспроизводимая подготовка PRP, cPRP, PPP, RBC и BMC из аутологичного материала с использованием одноразового стерильного набора.
               </p>
             </div>
             <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -427,24 +466,56 @@ function HomePage() {
         </section>
 
         <section className="bg-navy-50">
-          <div className="section grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <figure>
-              <img
-                src={ARTHREX_IMAGE}
-                alt="Фото PRP-системы Arthrex Angel System"
-                className="h-auto w-full rounded-lg border border-line bg-white object-contain p-4 shadow-soft"
-                loading="eager"
-                width="1200"
-                height="1021"
-              />
-            </figure>
+          <div className="section">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <div>
+                <p className="eyebrow">Визуально</p>
+                <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Система, набор и сенсорный контроль</h2>
+                <p className="mt-5 text-lg leading-8 text-steel">
+                  Для врача и закупочного отдела важно быстро понять, что именно входит в запрос: аппарат PRP, одноразовый набор cPRP или расходные материалы Arthrex Angel.
+                </p>
+              </div>
+              <div className="rounded-lg border border-line bg-white p-5 shadow-soft">
+                <h3 className="text-xl font-semibold text-navy-900">Что уточнить перед КП</h3>
+                <ul className="mt-4 grid gap-2 text-sm leading-6 text-steel sm:grid-cols-2">
+                  {purchaseChecklist.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-navy-500" /> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+              {visualGallery.map((item) => (
+                <article key={item.title} className="overflow-hidden rounded-lg border border-line bg-white shadow-soft">
+                  <img src={item.image} alt={item.alt} className="h-52 w-full bg-white object-contain p-3" loading="lazy" width="702" height="417" />
+                  <div className="border-t border-line p-5">
+                    <h3 className="text-lg font-semibold text-navy-900">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-steel">{item.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <div>
-              <p className="eyebrow">Фото системы</p>
-              <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Как выглядит Arthrex Angel System</h2>
-              <p className="mt-5 text-lg leading-8 text-steel">
-                Визуальная идентификация оборудования помогает закупочным отделам и профильным специалистам быстрее сопоставить
-                запрос с нужной PRP-системой и расходным набором Angel для cPRP.
+              <p className="eyebrow">Выбор оборудования</p>
+              <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">PRP-центрифуга или система подготовки cPRP?</h2>
+            </div>
+            <div className="space-y-5 text-lg leading-8 text-steel">
+              <p>
+                В Wordstat и поиске товар часто называют «PRP-центрифуга», «аппарат PRP» или «PRP оборудование». Для Angel System корректнее использовать более точное описание: автоматизированная система подготовки cPRP с центрифугированием, технологией 3ST и закрытым стерильным контуром.
               </p>
+              <p>
+                Такой формат запроса помогает врачу, руководителю отделения и закупке сравнивать не только сам аппарат, но и расходный набор, объем обработки, фракции на выходе и совместимость с рабочими процессами клиники.
+              </p>
+              <a className="focus-ring inline-flex items-center gap-2 rounded-md bg-navy-700 px-5 py-3 text-base font-semibold text-white hover:bg-navy-900" href="#contact">
+                Подобрать PRP-оборудование <ArrowRight size={18} />
+              </a>
             </div>
           </div>
         </section>
@@ -486,6 +557,14 @@ function HomePage() {
                 <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Набор cPRP для системы Angel</h2>
               </div>
               <article className="rounded-lg border border-line p-6 shadow-soft">
+                <img
+                  src={ANGEL_KIT_IMAGE}
+                  alt="Набор Angel для обработки cPRP"
+                  className="mb-6 h-auto w-full rounded-md border border-line bg-white object-contain"
+                  loading="lazy"
+                  width="1004"
+                  height="591"
+                />
                 <FlaskConical className="text-navy-500" size={28} />
                 <h3 className="mt-4 text-2xl font-bold text-navy-900">
                   Набор Angel для обработки обогащенной тромбоцитами концентрированной плазмы (cPRP)

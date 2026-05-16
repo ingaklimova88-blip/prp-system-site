@@ -7,9 +7,19 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://prp-system.ru/images/arthrex-angel-system-hero.webp</image:loc>
+      <image:loc>https://prp-system.ru/images/angel-system-presentation.webp</image:loc>
       <image:title>Arthrex Angel System</image:title>
-      <image:caption>Официальное изображение Arthrex Angel System для подготовки cPRP</image:caption>
+      <image:caption>PRP-система Arthrex Angel System для подготовки cPRP</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://prp-system.ru/images/angel-cprp-kit.webp</image:loc>
+      <image:title>Набор Angel cPRP</image:title>
+      <image:caption>Одноразовый стерильный набор Angel для обработки cPRP</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://prp-system.ru/images/angel-3st-sensor.webp</image:loc>
+      <image:title>Сенсорный контроль Angel 3ST</image:title>
+      <image:caption>Сенсорная зона системы Angel для контроля компонентов</image:caption>
     </image:image>
   </url>
   <url>
