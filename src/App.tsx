@@ -115,7 +115,7 @@ const faq = [
   },
   {
     q: 'Как работает Arthrex Angel System?',
-    a: 'Angel System использует автоматизированный цикл, центрифугирование и сенсорный контроль для разделения компонентов крови и подготовки PRP-формуляций.',
+    a: 'Angel System использует автоматизированный цикл и центрифугирование для разделения компонентов крови и подготовки PRP-формуляций.',
   },
   {
     q: 'Это обычная лабораторная центрифуга?',
@@ -397,7 +397,7 @@ function HomePage() {
               </div>
               <img
                 src={ANGEL_PRESENTATION_IMAGE}
-                alt="Arthrex Angel System для подготовки cPRP"
+                alt="Arthrex Angel System"
                 className="mt-10 hidden h-auto w-full max-w-2xl rounded-lg border border-line bg-white object-contain p-4 shadow-soft sm:block"
                 loading="eager"
                 width="702"
@@ -462,9 +462,9 @@ function HomePage() {
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
               <div>
                 <p className="eyebrow">Визуально</p>
-                <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Система, набор и сенсорный контроль</h2>
+                <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Система, набор и технология 3ST</h2>
                 <p className="mt-5 text-lg leading-8 text-steel">
-                  На странице показаны ключевые элементы системы: аппарат Angel, одноразовый набор cPRP и сенсорный контроль 3ST.
+                  На странице показаны ключевые элементы системы: аппарат Angel, одноразовый набор cPRP и технология 3ST.
                 </p>
               </div>
             </div>
