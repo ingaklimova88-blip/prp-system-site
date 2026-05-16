@@ -357,7 +357,7 @@ function HomePage() {
                 </a>
               </div>
               <div className="mt-10 grid gap-3 text-sm text-steel sm:grid-cols-3">
-                {['40-180 мл за цикл', 'До 18x baseline', 'PRP / PPP / RBC / BMC'].map((item) => (
+                {['40-180 мл за цикл', 'Концентрация тромбоцитов до 18 раз от исходного уровня', 'PRP / PPP / RBC / BMC'].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle2 size={18} className="text-navy-500" /> {item}
                   </div>
@@ -371,7 +371,6 @@ function HomePage() {
                 width="900"
                 height="620"
               />
-              <p className="mt-3 hidden text-xs text-steel sm:block">Источник изображения: официальный сайт Arthrex.</p>
             </div>
           </div>
         </section>
@@ -380,11 +379,19 @@ function HomePage() {
           <div className="max-w-3xl">
             <p className="eyebrow">О системе</p>
             <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Система подготовки PRP и cPRP: больше, чем обычная PRP-центрифуга</h2>
-            <p className="mt-5 text-lg leading-8 text-steel">
-              cPRP - концентрированная обогащенная тромбоцитами плазма. PPP - плазма с низким содержанием тромбоцитов. При
-              сепарации аутологичный материал разделяется на фракции, а система Angel контролирует процесс с помощью 3ST и
-              автоматизированного цикла.
-            </p>
+            <ol className="mt-6 grid gap-3 text-base leading-7 text-steel sm:grid-cols-2">
+              {[
+                'Материал поступает в одноразовый закрытый контур.',
+                'Система запускает автоматический цикл сепарации.',
+                '3ST-сенсоры контролируют границы компонентов.',
+                'На выходе получают PRP, PPP, RBC или BMC.',
+              ].map((item, index) => (
+                <li key={item} className="flex gap-3">
+                  <span className="font-semibold text-navy-700">{index + 1}.</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ol>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {components.map((item) => (
@@ -430,7 +437,6 @@ function HomePage() {
                 width="1200"
                 height="1021"
               />
-              <figcaption className="mt-3 text-xs leading-5 text-steel">Источник изображения: официальный сайт Arthrex.</figcaption>
             </figure>
             <div>
               <p className="eyebrow">Фото системы</p>
