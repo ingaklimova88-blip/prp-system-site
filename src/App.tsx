@@ -15,6 +15,7 @@ const CONTACT_EMAIL = 't0083640@yandex.ru';
 const CONTACT_PHONE = '+7 981 008-36-40';
 const DOMAIN = 'https://prp-system.ru';
 const ARTHREX_IMAGE = '/images/arthrex-angel-system-hero.webp';
+const FORM_ENDPOINT = 'https://prp-system-site.netlify.app/';
 
 const nav = [
   ['О системе', '#system'],
@@ -157,8 +158,9 @@ function LeadForm({ compact = false }: { compact?: boolean }) {
       form.reportValidity();
       return;
     }
-    fetch('/', {
+    fetch(FORM_ENDPOINT, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
     })
@@ -175,7 +177,7 @@ function LeadForm({ compact = false }: { compact?: boolean }) {
   return (
     <form
       name="lead"
-      action="/?form=sent"
+      action={FORM_ENDPOINT}
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="website"
