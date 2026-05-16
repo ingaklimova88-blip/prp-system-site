@@ -22,6 +22,7 @@
 
 - Один H1 на главной странице.
 - Разделы H2/H3.
+- Запрос `prp центрифуга` добавлен в title, meta description, hero-текст и FAQ через корректное уточнение: Angel System содержит этап центрифугирования, но не описывается как обычная лабораторная центрифуга.
 - FAQ с schema.org FAQPage.
 - MedicalDevice schema для Arthrex Angel System.
 - Canonical на основной домен.

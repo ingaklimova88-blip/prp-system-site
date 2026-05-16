@@ -82,7 +82,7 @@ const components = [
 const faq = [
   {
     q: 'Что такое PRP-система?',
-    a: 'PRP-система - это оборудование и расходный контур для подготовки плазмы, обогащенной тромбоцитами, из аутологичного материала.',
+    a: 'PRP-система - это оборудование и расходный контур для подготовки плазмы, обогащенной тромбоцитами, из аутологичного материала. В поиске такое оборудование часто ищут как PRP-центрифугу, аппарат PRP или систему подготовки PRP.',
   },
   {
     q: 'Что такое cPRP?',
@@ -94,7 +94,7 @@ const faq = [
   },
   {
     q: 'Это обычная лабораторная центрифуга?',
-    a: 'Нет. Angel System описывается производителем как автоматизированная система подготовки cPRP с технологией 3ST и закрытым одноразовым контуром.',
+    a: 'Нет. Angel System содержит этап центрифугирования, поэтому ее могут искать как PRP-центрифугу, но производитель описывает устройство как автоматизированную систему подготовки cPRP с технологией 3ST и закрытым одноразовым контуром.',
   },
   {
     q: 'Какие расходные материалы используются?',
@@ -314,10 +314,10 @@ function HomePage() {
   };
 
   useEffect(() => {
-    document.title = 'PRP-система Arthrex Angel System | cPRP оборудование и набор Angel';
+    document.title = 'PRP-система Arthrex Angel System | PRP-центрифуга, cPRP оборудование';
     setMeta(
       'description',
-      'PRP-система Arthrex Angel System для подготовки cPRP: 3ST, закрытый стерильный контур, обработка 40-180 мл за цикл. Запрос КП и информации по набору Angel.',
+      'Arthrex Angel System - PRP-система, которую часто ищут как PRP-центрифугу: подготовка cPRP, 3ST, закрытый стерильный контур, обработка 40-180 мл за цикл.',
     );
     setCanonical('/');
   }, []);
@@ -330,12 +330,12 @@ function HomePage() {
         <section className="bg-gradient-to-b from-navy-50 to-white">
           <div className="section">
             <div>
-              <p className="eyebrow">cPRP / PRP оборудование</p>
+              <p className="eyebrow">cPRP / PRP оборудование / PRP-центрифуга</p>
               <h1 className="mt-4 max-w-3xl text-[2.35rem] font-bold leading-tight text-navy-900 sm:text-5xl lg:text-6xl">
                 PRP-система Arthrex Angel System
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-steel sm:mt-6 sm:text-lg sm:leading-8">
-                Автоматизированная система подготовки концентрированной обогащенной тромбоцитами плазмы (cPRP).
+                Автоматизированная система подготовки концентрированной обогащенной тромбоцитами плазмы (cPRP). Такое оборудование часто ищут как PRP-центрифугу, аппарат PRP или систему подготовки PRP.
               </p>
               <img
                 src={ARTHREX_IMAGE}
@@ -377,7 +377,7 @@ function HomePage() {
         <section id="system" className="section">
           <div className="max-w-3xl">
             <p className="eyebrow">О системе</p>
-            <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Система подготовки PRP и cPRP</h2>
+            <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Система подготовки PRP и cPRP: больше, чем обычная PRP-центрифуга</h2>
             <p className="mt-5 text-lg leading-8 text-steel">
               cPRP - концентрированная обогащенная тромбоцитами плазма. PPP - плазма с низким содержанием тромбоцитов. При
               сепарации аутологичный материал разделяется на фракции, а система Angel контролирует процесс с помощью 3ST и

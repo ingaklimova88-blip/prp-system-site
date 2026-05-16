@@ -23,6 +23,7 @@
 ## Реализовано
 
 - Title и description.
+- Запрос `prp центрифуга` усилен в title, description, первом экране и FAQ без подмены смысла: Angel System не названа обычной лабораторной центрифугой.
 - Canonical.
 - OpenGraph.
 - OpenGraph image и Twitter Card.
