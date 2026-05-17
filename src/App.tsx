@@ -6,7 +6,6 @@ import {
   Mail,
   Menu,
   Phone,
-  ShieldCheck,
   X,
 } from 'lucide-react';
 import { FormEvent, useEffect, useMemo, useState } from 'react';
@@ -14,66 +13,61 @@ import { FormEvent, useEffect, useMemo, useState } from 'react';
 const CONTACT_EMAIL = 't0083640@yandex.ru';
 const CONTACT_PHONE = '+7 981 008-36-40';
 const DOMAIN = 'https://prp-system.ru';
-const ARTHREX_IMAGE = '/images/arthrex-angel-system-hero.webp';
 const ANGEL_PRESENTATION_IMAGE = '/images/angel-system-presentation.webp';
 const ANGEL_KIT_IMAGE = '/images/angel-cprp-kit.webp';
-const ANGEL_SENSOR_IMAGE = '/images/angel-3st-sensor.webp';
 const FORM_ENDPOINT = 'https://prp-system-site.netlify.app/';
 
 const nav = [
   ['О системе', '#system'],
   ['Сравнение', '#comparison'],
-  ['Преимущества', '#benefits'],
   ['Расходные материалы', '#consumables'],
   ['FAQ', '#faq'],
   ['Контакты', '#contact'],
 ] as const;
 
-const benefits = [
-  'Технология 3ST',
-  'Автоматизация цикла',
-  'Закрытый стерильный контур',
-  'Регулируемая концентрация компонентов',
-  'Воспроизводимость процесса',
-  'Обработка крови и костного мозга',
-  'До 540 мл материала за 3 цикла',
-];
-
 const buyers = [
   {
-    title: 'Клиникам и профильным отделениям',
-    text: 'Для задач, где важны автоматизированный цикл, закрытый стерильный контур и работа с PRP, cPRP, PPP, RBC или BMC из аутологичного материала.',
-  },
-  {
     title: 'Ортопедам, травматологам и хирургическим командам',
-    text: 'Для специалистов, которым нужна воспроизводимая подготовка компонентов в рамках внутренних медицинских протоколов организации.',
+    text: 'Для подготовки PRP, cPRP, PPP, RBC или BMC в рамках внутренних медицинских протоколов.',
   },
   {
-    title: 'Закупке и руководителям направлений',
-    text: 'Для сравнения PRP-оборудования по контуру, автоматизации, объему обработки, расходным материалам и документам перед запросом КП.',
+    title: 'Спортивной медицине и реабилитационным центрам',
+    text: 'Для направлений, где применяются аутологичные биологические материалы и важна воспроизводимость цикла.',
+  },
+  {
+    title: 'Клиникам, операционным и профильным кабинетам',
+    text: 'Для работы с закрытым стерильным контуром, одноразовым набором и обработкой 40-180 мл за цикл.',
+  },
+  {
+    title: 'Отделениям регенеративной медицины',
+    text: 'Для задач, где нужно разделение материала на предусмотренные фракции PRP, PPP, RBC и BMC.',
   },
 ];
 
 const comparison = [
   {
     criterion: 'Контур обработки',
-    standard: 'У обычных PRP-центрифуг контур и расходные элементы зависят от выбранного набора и регламента работы.',
-    angel: 'Angel использует одноразовый стерильный набор и закрытый контур обработки.',
+    standard: 'Открытые этапы или перенос между емкостями зависят от набора и регламента.',
+    angel: 'Закрытый стерильный контур, одноразовый набор Angel.',
+    risk: 'Риск контакта материала со средой при ручных переносах.',
   },
   {
     criterion: 'Управление процессом',
-    standard: 'Часть этапов обычно требует ручной настройки, контроля времени и переноса материала между этапами.',
-    angel: 'Автоматизированный цикл и технология 3ST помогают контролировать границы компонентов в процессе сепарации.',
+    standard: 'Ручная настройка времени, скорости и этапов.',
+    angel: 'Автоматизированный цикл, 3ST-контроль границ компонентов.',
+    risk: 'Выше зависимость результата от оператора.',
   },
   {
     criterion: 'Фракции на выходе',
-    standard: 'Часто ориентируются на получение PRP или плазменной фракции в рамках конкретного протокола.',
-    angel: 'В предусмотренных режимах доступны PRP, PPP, RBC и BMC.',
+    standard: 'Обычно фокус на PRP или плазменной фракции.',
+    angel: 'PRP, PPP, RBC, BMC в предусмотренных режимах.',
+    risk: 'Меньше гибкости при разных клинических задачах.',
   },
   {
     criterion: 'Объем обработки',
-    standard: 'Объем зависит от ротора, пробирок, набора и регламента конкретного оборудования.',
-    angel: 'Подтвержденный диапазон Angel: 40-180 мл за цикл, до 540 мл за 3 цикла.',
+    standard: 'Объем зависит от пробирок, ротора и набора.',
+    angel: '40-180 мл за цикл, до 540 мл за 3 цикла.',
+    risk: 'Ограничение объема может требовать больше циклов.',
   },
 ];
 
@@ -103,75 +97,38 @@ const components = [
   },
 ];
 
-const visualGallery = [
-  {
-    image: ANGEL_PRESENTATION_IMAGE,
-    title: 'Система Angel',
-    alt: 'Arthrex Angel System',
-    text: 'Компактная автоматизированная система для подготовки cPRP в предусмотренном контуре.',
-  },
-  {
-    image: ANGEL_KIT_IMAGE,
-    title: 'Набор cPRP',
-    alt: 'Набор Angel cPRP',
-    text: 'Одноразовый стерильный контур для обработки 40-180 мл материала за цикл.',
-  },
-  {
-    image: ANGEL_SENSOR_IMAGE,
-    title: 'Технология 3ST',
-    alt: 'Сенсорная зона Angel 3ST',
-    text: '3ST применяется в автоматическом цикле подготовки компонентов.',
-  },
-];
-
 const faq = [
   {
-    q: 'Что такое PRP-система?',
-    a: 'PRP-система - это оборудование и расходный контур для подготовки плазмы, обогащенной тромбоцитами, из аутологичного материала. В поиске такое оборудование часто ищут как PRP-центрифугу, аппарат PRP или систему подготовки PRP.',
+    q: 'Angel PRP центрифуга купить в РФ - как запросить КП?',
+    a: 'Оставьте заявку на сайте, если вы ищете Angel PRP центрифугу купить в РФ, аппарат PRP или расходные материалы Arthrex Angel. В ответ можно запросить КП, документы и уточнение совместимости.',
   },
   {
-    q: 'Что такое cPRP?',
-    a: 'cPRP означает concentrated platelet-rich plasma: концентрированную обогащенную тромбоцитами плазму.',
+    q: 'Что такое PRP-система?',
+    a: 'PRP-система - это оборудование и расходный контур для подготовки плазмы, обогащенной тромбоцитами, из аутологичного материала. Такое оборудование часто ищут как PRP-центрифугу, аппарат PRP или систему подготовки PRP.',
   },
   {
     q: 'Как работает Arthrex Angel System?',
-    a: 'Angel System использует автоматизированный цикл и центрифугирование для разделения компонентов крови и подготовки PRP-формуляций.',
+    a: 'Angel System использует автоматизированный цикл, центрифугирование и технологию 3ST для разделения компонентов крови или смеси крови и костного мозга.',
   },
   {
-    q: 'Это обычная лабораторная центрифуга?',
-    a: 'Нет. Angel System содержит этап центрифугирования, поэтому ее могут искать как PRP-центрифугу, но корректнее описывать устройство как автоматизированную систему подготовки cPRP с технологией 3ST и закрытым одноразовым контуром.',
+    q: 'Чем Angel отличается от обычной PRP-центрифуги?',
+    a: 'Angel - автоматизированная система подготовки cPRP с закрытым стерильным контуром, одноразовым набором, 3ST и обработкой 40-180 мл за цикл.',
   },
   {
     q: 'Какие расходные материалы используются?',
     a: 'Для обработки cPRP используется одноразовый стерильный набор Angel с разделительной камерой переменного объема, резервуаром-мешком с тремя отделениями, PRP-клапаном, шприцем Luer-Lock 20 мл и трубками контура прокачки.',
   },
   {
-    q: 'Можно ли запросить КП?',
-    a: 'Да. Оставьте заявку, и специалист свяжется с вами для уточнения запроса и подготовки коммерческого предложения.',
+    q: 'Можно ли купить расходные материалы Arthrex Angel отдельно?',
+    a: 'Можно отправить запрос только по расходным материалам. Совместимость набора cPRP с системой Angel и задачами клиники уточняется перед КП.',
   },
   {
-    q: 'Можно ли купить только расходные материалы?',
-    a: 'Да, можно отправить запрос по расходным материалам. Совместимость и условия поставки уточняются индивидуально.',
+    q: 'Что такое cPRP?',
+    a: 'cPRP - концентрированная обогащенная тромбоцитами плазма, подготавливаемая из аутологичного материала.',
   },
   {
-    q: 'Для чего используется PRP?',
-    a: 'PRP применяется в направлениях, где используются аутологичные биологические материалы, включая ортопедию, травматологию, спортивную медицину, хирургию и регенеративную медицину.',
-  },
-  {
-    q: 'Что такое PPP?',
-    a: 'PPP - platelet-poor plasma, плазма с низким содержанием тромбоцитов, одна из фракций, получаемых при сепарации.',
-  },
-  {
-    q: 'Как уточнить совместимость?',
-    a: 'Отправьте модель системы, тип задачи и доступные данные по используемым расходным материалам через форму заявки.',
-  },
-  {
-    q: 'Что указать в заявке перед покупкой PRP-оборудования?',
-    a: 'Укажите организацию, направление работы, интерес к системе Angel или только к набору cPRP, а также желаемый объем обработки и вопросы по совместимости.',
-  },
-  {
-    q: 'Как запросить Angel PRP центрифугу и купить в РФ?',
-    a: 'Оставьте заявку на сайте, если вы ищете Angel PRP центрифугу купить в РФ, аппарат PRP или расходные материалы Arthrex Angel. В ответ можно запросить КП, документы и уточнение совместимости без публикации цен, наличия и неподтвержденных сроков на сайте.',
+    q: 'Для каких направлений используется PRP-оборудование?',
+    a: 'PRP-оборудование используют в ортопедии, травматологии, спортивной медицине, хирургии и регенеративной медицине в рамках внутренних медицинских протоколов.',
   },
 ];
 
@@ -462,13 +419,13 @@ function HomePage() {
         <section className="bg-white">
           <div className="section">
             <div className="max-w-3xl">
-              <p className="eyebrow">Кому подходит</p>
-              <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Для кого нужна PRP-система Angel</h2>
+              <p className="eyebrow">Кому требуется</p>
+              <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Кому требуется в работе PRP-система Angel</h2>
               <p className="mt-3 text-base leading-7 text-steel">
                 Arthrex Angel System выбирают для задач, где важны управляемая подготовка компонентов, стерильный одноразовый контур и понятные параметры расходного набора.
               </p>
             </div>
-            <div className="mt-6 grid gap-3 md:grid-cols-3">
+            <div className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
               {buyers.map((item) => (
                 <article key={item.title} className="rounded-lg border border-line p-4">
                   <h3 className="text-base font-semibold text-navy-900">{item.title}</h3>
@@ -488,58 +445,20 @@ function HomePage() {
             </p>
           </div>
           <div className="mt-6 overflow-hidden rounded-lg border border-line">
-            <div className="grid bg-navy-900 text-sm font-semibold text-white md:grid-cols-[0.8fr_1.1fr_1.1fr]">
+            <div className="grid bg-navy-900 text-sm font-semibold text-white md:grid-cols-[0.75fr_1fr_1fr_1fr]">
               <div className="border-white/10 p-3 md:border-r">Критерий</div>
               <div className="border-white/10 p-3 md:border-r">Обычная PRP-центрифуга</div>
-              <div className="p-3">Arthrex Angel System</div>
+              <div className="border-white/10 p-3 md:border-r">Arthrex Angel System</div>
+              <div className="p-3">Риск при обычной PRP</div>
             </div>
             {comparison.map((item) => (
-              <article key={item.criterion} className="grid border-t border-line bg-white text-sm leading-6 md:grid-cols-[0.8fr_1.1fr_1.1fr]">
+              <article key={item.criterion} className="grid border-t border-line bg-white text-sm leading-6 md:grid-cols-[0.75fr_1fr_1fr_1fr]">
                 <h3 className="border-line p-3 font-semibold text-navy-900 md:border-r">{item.criterion}</h3>
                 <p className="border-line p-3 text-steel md:border-r">{item.standard}</p>
-                <p className="p-3 font-medium text-navy-900">{item.angel}</p>
+                <p className="border-line p-3 font-medium text-navy-900 md:border-r">{item.angel}</p>
+                <p className="p-3 text-steel">{item.risk}</p>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="bg-navy-50">
-          <div className="section">
-            <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-              <div>
-                <p className="eyebrow">Визуально</p>
-                <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Что входит в запрос по Angel</h2>
-                <p className="mt-3 text-base leading-7 text-steel">
-                  Врач и закупка обычно уточняют три части: систему Angel, одноразовый набор cPRP и технологию 3ST, которая используется в автоматическом цикле.
-                </p>
-              </div>
-            </div>
-            <div className="mt-6 grid gap-3 lg:grid-cols-3">
-              {visualGallery.map((item) => (
-                <article key={item.title} className="overflow-hidden rounded-lg border border-line bg-white shadow-soft">
-                  <img src={item.image} alt={item.alt} className="h-40 w-full bg-white object-contain p-2" loading="lazy" width="702" height="417" />
-                  <div className="border-t border-line p-4">
-                  <h3 className="text-base font-semibold text-navy-900">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-steel">{item.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="benefits" className="bg-navy-50">
-          <div className="section">
-            <p className="eyebrow">Преимущества</p>
-            <h2 className="mt-2 max-w-3xl text-2xl font-bold text-navy-900 sm:text-3xl">Сильные стороны Angel System</h2>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {benefits.map((item) => (
-                <article key={item} className="rounded-lg border border-line bg-white p-4">
-                  <ShieldCheck className="text-navy-500" size={24} aria-hidden="true" />
-                  <h3 className="mt-3 text-base font-semibold text-navy-900">{item}</h3>
-                </article>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -599,20 +518,6 @@ function HomePage() {
                   Запросить информацию <ArrowRight size={18} />
                 </a>
               </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-navy-900 text-white">
-          <div className="section">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-navy-100">Направления применения</p>
-            <h2 className="mt-2 max-w-3xl text-2xl font-bold sm:text-3xl">Для медицинских организаций и профильных специалистов</h2>
-            <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-              {['ортопедия', 'травматология', 'спортивная медицина', 'хирургия', 'регенеративная медицина'].map((item) => (
-                <div key={item} className="rounded-lg border border-white/20 p-3 text-sm font-semibold">
-                  {item}
-                </div>
-              ))}
             </div>
           </div>
         </section>
