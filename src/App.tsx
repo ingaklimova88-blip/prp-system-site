@@ -153,6 +153,10 @@ const faq = [
     q: 'Что указать в заявке перед покупкой PRP-оборудования?',
     a: 'Укажите организацию, направление работы, интерес к системе Angel или только к набору cPRP, а также желаемый объем обработки и вопросы по совместимости.',
   },
+  {
+    q: 'Как запросить Angel PRP центрифугу и купить в РФ?',
+    a: 'Оставьте заявку на сайте, если вы ищете Angel PRP центрифугу купить в РФ, аппарат PRP или расходные материалы Arthrex Angel. В ответ можно запросить КП, документы и уточнение совместимости без публикации цен, наличия и неподтвержденных сроков на сайте.',
+  },
 ];
 
 function setMeta(name: string, content: string) {
@@ -348,10 +352,10 @@ function HomePage() {
   };
 
   useEffect(() => {
-    document.title = 'PRP-система Arthrex Angel System | PRP-центрифуга и cPRP оборудование для врачей';
+    document.title = 'Angel PRP центрифуга купить в РФ | Arthrex Angel System и cPRP набор';
     setMeta(
       'description',
-      'Arthrex Angel System - PRP-система и cPRP оборудование для клиник. Часто ищут как PRP-центрифугу: 3ST, закрытый стерильный контур, обработка 40-180 мл за цикл.',
+      'Angel PRP центрифуга купить в РФ: Arthrex Angel System для подготовки cPRP, PRP оборудование и одноразовый набор Angel. КП и совместимость уточняются по запросу.',
     );
     setCanonical('/');
   }, []);
@@ -535,7 +539,8 @@ function HomePage() {
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-steel">
                   Одноразовый стерильный набор используется совместно с системой Angel и обеспечивает закрытый контур обработки
-                  40-180 мл за цикл.
+                  40-180 мл за цикл. Если вы ищете Angel PRP центрифугу, PRP оборудование или набор cPRP купить в РФ,
+                  параметры поставки и совместимость уточняются через заявку.
                 </p>
                 <ul className="mt-3 grid gap-2 text-sm text-steel sm:grid-cols-2">
                   {[
@@ -589,7 +594,7 @@ function HomePage() {
           <div className="section grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <p className="eyebrow">Заявка</p>
-              <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Запросить КП или информацию</h2>
+              <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Angel PRP центрифуга: запросить КП в РФ</h2>
               <div className="mt-5 space-y-3 text-steel">
                 <a className="flex items-center gap-3 text-navy-900" href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}>
                   <Phone size={20} /> {CONTACT_PHONE}
