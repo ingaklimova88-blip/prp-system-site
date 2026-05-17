@@ -214,15 +214,15 @@ function LeadForm({ compact = false }: { compact?: boolean }) {
       data-netlify="true"
       data-netlify-honeypot="website"
       onSubmit={onSubmit}
-      className="space-y-4 rounded-lg border border-line bg-white p-5 shadow-soft"
+      className="space-y-3 rounded-lg border border-line bg-white p-4 shadow-soft sm:p-5"
     >
       <input type="hidden" name="form-name" value="lead" />
       <input type="hidden" name="source" value="Bottom CTA" />
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
-      <div className={compact ? 'grid gap-4 sm:grid-cols-2' : 'space-y-4'}>
+      <div className={compact ? 'grid gap-3 sm:grid-cols-2' : 'space-y-3'}>
         <label className="block">
           <span className="mb-1 block text-sm font-medium text-navy-900">Имя</span>
-          <input name="name" required minLength={2} className="focus-ring w-full rounded-md border border-line px-3 py-3" />
+          <input name="name" required minLength={2} className="focus-ring w-full rounded-md border border-line px-3 py-2.5" />
         </label>
         <label className="block">
           <span className="mb-1 block text-sm font-medium text-navy-900">Телефон</span>
@@ -231,23 +231,23 @@ function LeadForm({ compact = false }: { compact?: boolean }) {
             required
             inputMode="tel"
             pattern="^[0-9+()\\-\\s]{7,}$"
-            className="focus-ring w-full rounded-md border border-line px-3 py-3"
+            className="focus-ring w-full rounded-md border border-line px-3 py-2.5"
           />
         </label>
         <label className="block">
           <span className="mb-1 block text-sm font-medium text-navy-900">Email</span>
-          <input name="email" required type="email" className="focus-ring w-full rounded-md border border-line px-3 py-3" />
+          <input name="email" required type="email" className="focus-ring w-full rounded-md border border-line px-3 py-2.5" />
         </label>
         <label className="block">
           <span className="mb-1 block text-sm font-medium text-navy-900">Организация</span>
-          <input name="organization" className="focus-ring w-full rounded-md border border-line px-3 py-3" />
+          <input name="organization" className="focus-ring w-full rounded-md border border-line px-3 py-2.5" />
         </label>
       </div>
       <label className="block">
         <span className="mb-1 block text-sm font-medium text-navy-900">Комментарий</span>
-        <textarea name="comment" rows={compact ? 3 : 4} className="focus-ring w-full rounded-md border border-line px-3 py-3" />
+        <textarea name="comment" rows={compact ? 2 : 3} className="focus-ring w-full rounded-md border border-line px-3 py-2.5" />
       </label>
-      <label className="flex items-start gap-3 text-sm leading-6 text-steel">
+      <label className="flex items-start gap-3 text-xs leading-5 text-steel sm:text-sm">
         <input type="checkbox" name="personal_data_consent" required className="mt-1 h-4 w-4 rounded border-line text-navy-700" />
         <span>
           Я соглашаюсь с обработкой персональных данных и принимаю условия{' '}
@@ -263,7 +263,7 @@ function LeadForm({ compact = false }: { compact?: boolean }) {
       </label>
       <button
         type="submit"
-        className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-md bg-navy-700 px-5 py-3 font-semibold text-white transition hover:bg-navy-900"
+        className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-md bg-navy-700 px-5 py-2.5 font-semibold text-white transition hover:bg-navy-900"
       >
         Отправить заявку <ArrowRight size={18} aria-hidden="true" />
       </button>
@@ -301,10 +301,10 @@ function Header() {
         </button>
       </div>
       {open ? (
-        <div className="border-t border-line bg-white px-4 py-4 lg:hidden">
-          <nav className="grid gap-3" aria-label="Мобильная навигация">
+        <div className="border-t border-line bg-white px-4 py-2 lg:hidden">
+          <nav className="grid gap-1" aria-label="Мобильная навигация">
             {nav.map(([label, href]) => (
-              <a key={href} href={href} onClick={() => setOpen(false)} className="rounded-md px-2 py-2 font-medium text-navy-900">
+              <a key={href} href={href} onClick={() => setOpen(false)} className="rounded-md px-2 py-2 text-sm font-medium text-navy-900">
                 {label}
               </a>
             ))}
@@ -363,42 +363,44 @@ function HomePage() {
       <main>
         <section className="bg-gradient-to-b from-navy-50 to-white">
           <div className="section">
-            <div>
-              <p className="eyebrow">cPRP / PRP оборудование / PRP-центрифуга</p>
-              <h1 className="mt-4 max-w-3xl text-[2.35rem] font-bold leading-tight text-navy-900 sm:text-5xl lg:text-6xl">
-                PRP-система Arthrex Angel System
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-steel sm:mt-6 sm:text-lg sm:leading-8">
-                Автоматизированная система подготовки концентрированной обогащенной тромбоцитами плазмы (cPRP) для медицинских организаций, ортопедии, травматологии, спортивной медицины и хирургических отделений.
-              </p>
-              <img
-                src={ANGEL_PRESENTATION_IMAGE}
-                alt="Фото PRP-системы Arthrex Angel System"
-                className="mt-6 h-44 w-full rounded-lg border border-line bg-white object-cover shadow-soft sm:hidden"
-                loading="eager"
-                fetchPriority="high"
-                width="1200"
-                height="1021"
-              />
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a className="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-navy-700 px-6 py-3 font-semibold text-white hover:bg-navy-900" href="#contact">
-                  Получить КП <ArrowRight size={18} />
-                </a>
-                <a className="focus-ring inline-flex items-center justify-center gap-2 rounded-md border border-navy-700 px-6 py-3 font-semibold text-navy-900 hover:bg-white" href="#contact">
-                  Запросить информацию
-                </a>
-              </div>
-              <div className="mt-10 grid gap-3 text-sm text-steel sm:grid-cols-3">
-                {['40-180 мл за цикл', 'Концентрация тромбоцитов до 18 раз от исходного уровня', 'PRP / PPP / RBC / BMC'].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CheckCircle2 size={18} className="text-navy-500" /> {item}
-                  </div>
-                ))}
+            <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr] lg:items-center">
+              <div>
+                <p className="eyebrow">cPRP / PRP оборудование / PRP-центрифуга</p>
+                <h1 className="mt-3 max-w-3xl text-[2rem] font-bold leading-tight text-navy-900 sm:text-4xl lg:text-5xl">
+                  PRP-система Arthrex Angel System
+                </h1>
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-steel sm:text-base sm:leading-7">
+                  Автоматизированная система подготовки концентрированной обогащенной тромбоцитами плазмы (cPRP) для медицинских организаций, ортопедии, травматологии, спортивной медицины и хирургических отделений.
+                </p>
+                <img
+                  src={ANGEL_PRESENTATION_IMAGE}
+                  alt="Фото PRP-системы Arthrex Angel System"
+                  className="mt-4 h-36 w-full rounded-lg border border-line bg-white object-cover shadow-soft sm:hidden"
+                  loading="eager"
+                  fetchPriority="high"
+                  width="1200"
+                  height="1021"
+                />
+                <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+                  <a className="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-navy-700 px-5 py-2.5 font-semibold text-white hover:bg-navy-900" href="#contact">
+                    Получить КП <ArrowRight size={18} />
+                  </a>
+                  <a className="focus-ring inline-flex items-center justify-center gap-2 rounded-md border border-navy-700 px-5 py-2.5 font-semibold text-navy-900 hover:bg-white" href="#contact">
+                    Запросить информацию
+                  </a>
+                </div>
+                <div className="mt-5 grid gap-2 text-sm text-steel sm:grid-cols-3">
+                  {['40-180 мл за цикл', 'Концентрация тромбоцитов до 18 раз от исходного уровня', 'PRP / PPP / RBC / BMC'].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle2 size={18} className="text-navy-500" /> {item}
+                    </div>
+                  ))}
+                </div>
               </div>
               <img
                 src={ANGEL_PRESENTATION_IMAGE}
                 alt="Arthrex Angel System"
-                className="mt-10 hidden h-auto w-full max-w-2xl rounded-lg border border-line bg-white object-contain p-4 shadow-soft sm:block"
+                className="hidden h-auto w-full rounded-lg border border-line bg-white object-contain p-3 shadow-soft sm:block"
                 loading="eager"
                 width="702"
                 height="417"
@@ -410,8 +412,8 @@ function HomePage() {
         <section id="system" className="section">
           <div className="max-w-3xl">
             <p className="eyebrow">О системе</p>
-            <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Система подготовки PRP и cPRP: больше, чем обычная PRP-центрифуга</h2>
-            <ol className="mt-6 grid gap-3 text-base leading-7 text-steel sm:grid-cols-2">
+            <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Система подготовки PRP и cPRP: больше, чем обычная PRP-центрифуга</h2>
+            <ol className="mt-4 grid gap-2 text-sm leading-6 text-steel sm:grid-cols-2">
               {[
                 'Материал поступает в одноразовый закрытый контур.',
                 'Система запускает автоматический цикл сепарации.',
@@ -425,11 +427,11 @@ function HomePage() {
               ))}
             </ol>
           </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {components.map((item) => (
-              <article key={item.term} className="rounded-lg border border-line p-6">
-                <h3 className="text-xl font-semibold text-navy-900">{item.term}</h3>
-                <p className="mt-3 text-sm leading-6 text-steel">
+              <article key={item.term} className="rounded-lg border border-line p-4">
+                <h3 className="text-lg font-semibold text-navy-900">{item.term}</h3>
+                <p className="mt-2 text-sm leading-6 text-steel">
                   {item.text}
                 </p>
               </article>
@@ -441,16 +443,16 @@ function HomePage() {
           <div className="section">
             <div className="max-w-3xl">
               <p className="eyebrow">Кому подходит</p>
-              <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Для кого нужна PRP-система Angel</h2>
-              <p className="mt-5 text-lg leading-8 text-steel">
+              <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Для кого нужна PRP-система Angel</h2>
+              <p className="mt-3 text-base leading-7 text-steel">
                 Arthrex Angel System рассматривают клиники и врачи, которым нужна воспроизводимая подготовка PRP, cPRP, PPP, RBC и BMC из аутологичного материала с использованием одноразового стерильного набора.
               </p>
             </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
+            <div className="mt-6 grid gap-3 md:grid-cols-2">
               {buyers.map((item) => (
-                <article key={item.title} className="rounded-lg border border-line p-6">
-                  <h3 className="text-lg font-semibold text-navy-900">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-steel">{item.text}</p>
+                <article key={item.title} className="rounded-lg border border-line p-4">
+                  <h3 className="text-base font-semibold text-navy-900">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-steel">{item.text}</p>
                 </article>
               ))}
             </div>
@@ -459,21 +461,21 @@ function HomePage() {
 
         <section className="bg-navy-50">
           <div className="section">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
               <div>
                 <p className="eyebrow">Визуально</p>
-                <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Система, набор и технология 3ST</h2>
-                <p className="mt-5 text-lg leading-8 text-steel">
+                <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Система, набор и технология 3ST</h2>
+                <p className="mt-3 text-base leading-7 text-steel">
                   На странице показаны ключевые элементы системы: аппарат Angel, одноразовый набор cPRP и технология 3ST.
                 </p>
               </div>
             </div>
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            <div className="mt-6 grid gap-3 lg:grid-cols-3">
               {visualGallery.map((item) => (
                 <article key={item.title} className="overflow-hidden rounded-lg border border-line bg-white shadow-soft">
-                  <img src={item.image} alt={item.alt} className="h-52 w-full bg-white object-contain p-3" loading="lazy" width="702" height="417" />
-                  <div className="border-t border-line p-5">
-                    <h3 className="text-lg font-semibold text-navy-900">{item.title}</h3>
+                  <img src={item.image} alt={item.alt} className="h-40 w-full bg-white object-contain p-2" loading="lazy" width="702" height="417" />
+                  <div className="border-t border-line p-4">
+                  <h3 className="text-base font-semibold text-navy-900">{item.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-steel">{item.text}</p>
                   </div>
                 </article>
@@ -485,12 +487,12 @@ function HomePage() {
         <section id="benefits" className="bg-navy-50">
           <div className="section">
             <p className="eyebrow">Преимущества</p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-bold text-navy-900 sm:text-4xl">Ключевые характеристики Angel System</h2>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className="mt-2 max-w-3xl text-2xl font-bold text-navy-900 sm:text-3xl">Ключевые характеристики Angel System</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {benefits.map((item) => (
-                <article key={item} className="rounded-lg border border-line bg-white p-6">
+                <article key={item} className="rounded-lg border border-line bg-white p-4">
                   <ShieldCheck className="text-navy-500" size={24} aria-hidden="true" />
-                  <h3 className="mt-4 text-lg font-semibold text-navy-900">{item}</h3>
+                  <h3 className="mt-3 text-base font-semibold text-navy-900">{item}</h3>
                 </article>
               ))}
             </div>
@@ -499,13 +501,13 @@ function HomePage() {
 
         <section className="section">
           <p className="eyebrow">Процесс</p>
-          <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Как работает система</h2>
-          <div className="mt-10 grid gap-4 lg:grid-cols-4">
+          <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Как работает система</h2>
+          <div className="mt-6 grid gap-3 lg:grid-cols-4">
             {steps.map(([title, text], index) => (
-              <article key={title} className="rounded-lg border border-line p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-navy-700 font-bold text-white">{index + 1}</div>
-                <h3 className="mt-5 text-lg font-semibold text-navy-900">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-steel">{text}</p>
+              <article key={title} className="rounded-lg border border-line p-4">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-navy-700 text-sm font-bold text-white">{index + 1}</div>
+                <h3 className="mt-3 text-base font-semibold text-navy-900">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-steel">{text}</p>
               </article>
             ))}
           </div>
@@ -513,29 +515,29 @@ function HomePage() {
 
         <section id="consumables" className="bg-white">
           <div className="section">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div>
                 <p className="eyebrow">Расходные материалы Arthrex Angel</p>
-                <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Набор cPRP для системы Angel</h2>
+                <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Набор cPRP для системы Angel</h2>
               </div>
-              <article className="rounded-lg border border-line p-6 shadow-soft">
+              <article className="rounded-lg border border-line p-4 shadow-soft">
                 <img
                   src={ANGEL_KIT_IMAGE}
                   alt="Набор Angel для обработки cPRP"
-                  className="mb-6 h-auto w-full rounded-md border border-line bg-white object-contain"
+                  className="mb-4 max-h-72 w-full rounded-md border border-line bg-white object-contain"
                   loading="lazy"
                   width="1004"
                   height="591"
                 />
                 <FlaskConical className="text-navy-500" size={28} />
-                <h3 className="mt-4 text-2xl font-bold text-navy-900">
+                <h3 className="mt-3 text-xl font-bold text-navy-900">
                   Набор Angel для обработки обогащенной тромбоцитами концентрированной плазмы (cPRP)
                 </h3>
-                <p className="mt-4 leading-7 text-steel">
+                <p className="mt-3 text-sm leading-6 text-steel">
                   Одноразовый стерильный набор используется совместно с системой Angel и обеспечивает закрытый контур обработки
                   40-180 мл за цикл.
                 </p>
-                <ul className="mt-5 grid gap-2 text-sm text-steel sm:grid-cols-2">
+                <ul className="mt-3 grid gap-2 text-sm text-steel sm:grid-cols-2">
                   {[
                     'разделительная камера переменного объема',
                     'резервуар-мешок с тремя отделениями',
@@ -548,7 +550,7 @@ function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <a className="focus-ring mt-6 inline-flex items-center gap-2 rounded-md bg-navy-700 px-5 py-3 font-semibold text-white hover:bg-navy-900" href="#contact">
+                <a className="focus-ring mt-4 inline-flex items-center gap-2 rounded-md bg-navy-700 px-5 py-2.5 font-semibold text-white hover:bg-navy-900" href="#contact">
                   Запросить информацию <ArrowRight size={18} />
                 </a>
               </article>
@@ -559,10 +561,10 @@ function HomePage() {
         <section className="bg-navy-900 text-white">
           <div className="section">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-navy-100">Направления применения</p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-bold sm:text-4xl">Для медицинских организаций и профильных специалистов</h2>
-            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <h2 className="mt-2 max-w-3xl text-2xl font-bold sm:text-3xl">Для медицинских организаций и профильных специалистов</h2>
+            <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
               {['ортопедия', 'травматология', 'спортивная медицина', 'хирургия', 'регенеративная медицина'].map((item) => (
-                <div key={item} className="rounded-lg border border-white/20 p-5 text-sm font-semibold">
+                <div key={item} className="rounded-lg border border-white/20 p-3 text-sm font-semibold">
                   {item}
                 </div>
               ))}
@@ -572,23 +574,23 @@ function HomePage() {
 
         <section id="faq" className="section">
           <p className="eyebrow">FAQ</p>
-          <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Вопросы по PRP-системе и наборам cPRP</h2>
-          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+          <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Вопросы по PRP-системе и наборам cPRP</h2>
+          <div className="mt-6 grid gap-3 lg:grid-cols-2">
             {faq.map((item) => (
-              <details key={item.q} className="rounded-lg border border-line p-5">
-                <summary className="cursor-pointer text-lg font-semibold text-navy-900">{item.q}</summary>
-                <p className="mt-3 leading-7 text-steel">{item.a}</p>
+              <details key={item.q} className="rounded-lg border border-line p-4">
+                <summary className="cursor-pointer text-base font-semibold text-navy-900">{item.q}</summary>
+                <p className="mt-2 text-sm leading-6 text-steel">{item.a}</p>
               </details>
             ))}
           </div>
         </section>
 
         <section id="contact" className="bg-navy-50">
-          <div className="section grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="section grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <p className="eyebrow">Заявка</p>
-              <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">Запросить КП или информацию</h2>
-              <div className="mt-8 space-y-4 text-steel">
+              <h2 className="mt-2 text-2xl font-bold text-navy-900 sm:text-3xl">Запросить КП или информацию</h2>
+              <div className="mt-5 space-y-3 text-steel">
                 <a className="flex items-center gap-3 text-navy-900" href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}>
                   <Phone size={20} /> {CONTACT_PHONE}
                 </a>
@@ -685,7 +687,7 @@ export default function App() {
       <Header />
       {path === '/privacy' ? <LegalPage type="privacy" /> : path === '/personal-data-consent' ? <LegalPage type="consent" /> : <HomePage />}
       <footer className="border-t border-line bg-white">
-        <div className="mx-auto grid max-w-7xl gap-4 px-4 py-8 text-sm text-steel sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-2 px-4 py-5 text-sm text-steel sm:px-6 lg:px-8">
           <p className="font-semibold text-navy-900">PRP System</p>
           <p>Информационный сайт о PRP-системе Arthrex Angel System и наборе Angel для cPRP.</p>
           <p>

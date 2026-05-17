@@ -32,11 +32,11 @@ textarea {
 }
 
 .section {
-  @apply mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24;
+  @apply mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14;
 }
 
 .eyebrow {
-  @apply text-xs font-semibold uppercase tracking-[0.18em] text-navy-500;
+  @apply text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-navy-500;
 }
 
 .focus-ring {
